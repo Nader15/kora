@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904884542451",
+    "project_id": "kora-140aa",
+    "storage_bucket": "kora-140aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904884542451:android:9513c74f7fab0f7ba29086",
+        "android_client_info": {
+          "package_name": "com.football.kora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904884542451-2o974ggbfkbe301h6idqvhght6efa8ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI3gwwNVlAspnX83-64kI5K3y0QAmDpMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904884542451-2o974ggbfkbe301h6idqvhght6efa8ms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
