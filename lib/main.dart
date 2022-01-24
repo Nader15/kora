@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Kora',
       theme: ThemeData(
         canvasColor: Colors.transparent,
-        // fontFamily: "ElMessiri",
+        fontFamily: "arabic_font",
       ),
       initialRoute: AppRoutes.splash,
       getPages: AppRoutes.routes,

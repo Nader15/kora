@@ -2,35 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/auth_controller.dart';
 import 'package:kora/Logic/Controllers/main_controller.dart';
+import 'package:kora/Logic/Controllers/tournaments_controller.dart';
+import 'package:kora/Utils/colors.dart';
 
 class MainScreen extends StatelessWidget {
   final controller = Get.find<MainController>();
   final authController = Get.find<AuthController>();
+  // final tournamentsController = Get.find<TournamentsController>();
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: Builder(
-            builder: (context) => Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: InkWell(
-                onTap: () => Scaffold.of(context).openDrawer(),
-                child: CircleAvatar(
-                  backgroundImage:
-                      AssetImage('assets/images/profile_image.jpg'),
-                ),
-              ),
-            ),
-          ),
+          backgroundColor: greyPrimaryColor,
+          // leading: Builder(
+          //   builder: (context) => InkWell(
+          //     onTap: () => Scaffold.of(context).openDrawer(),
+          //     child: Icon(Icons.menu_rounded,color: Colors.black,)
+          //   ),
+          // ),
           actions: [
             IconButton(
               icon: Icon(Icons.notifications),
               onPressed: () {},
               iconSize: 30,
-              color: Colors.black,
+              color: whiteColor,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/profile_image.jpg'),
+              ),
             ),
           ],
           elevation: 0,
@@ -46,16 +49,15 @@ class MainScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 4,
+                      height: MediaQuery.of(context).size.height / 3.6,
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.red, width: 2),
+                          color: primaryColor.withOpacity(0.1),
+                          border: Border.all(color: primaryColor, width: 2),
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            alignment: Alignment.topRight,
-                            color: Colors.blue.withOpacity(0.1),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -65,25 +67,26 @@ class MainScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "ST",
+                                        "مهاجم",
                                         style: TextStyle(
-                                            color: Colors.red, fontSize: 40),
+                                            color: primaryColor, fontSize: 20),
                                       ),
                                       SizedBox(
-                                        height: 10,
+                                        height: 20,
                                       ),
-                                      Text(
-                                        "EG",
-                                        style: TextStyle(
-                                            color: Colors.red, fontSize: 30),
-                                      ),
+                                      Container(
+                                        width: 40,
+                                        child: Image.network(
+                                          "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/2560px-Flag_of_Egypt.svg.png",
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
                                 Container(
                                   height:
                                       MediaQuery.of(context).size.height / 5,
-                                  width: 140,
+                                  width:  MediaQuery.of(context).size.width / 3.1,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(10)),
@@ -101,10 +104,9 @@ class MainScreen extends StatelessWidget {
                           Container(
                             alignment: Alignment.center,
                             padding: EdgeInsets.all(10),
-                            color: Colors.blue.withOpacity(0.1),
                             child: Text(
-                              "Nader Salah",
-                              style: TextStyle(color: Colors.red),
+                              "نادر صلاح",
+                              style: TextStyle(color: primaryColor,fontSize: 20),
                             ),
                           ),
                         ],
@@ -177,17 +179,21 @@ class MainScreen extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: blackColor,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.currentIndex.value,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.blue,
-          selectedItemColor: Colors.white,
+          backgroundColor: greyPrimaryColor,
+          selectedItemColor: primaryColor,
+          unselectedItemColor: greyColor,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'الرئيسية'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.sports_baseball_rounded), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
+                icon: Icon(Icons.sports_baseball_rounded), label: 'الدورات'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.sports_baseball_rounded), label: 'الماتشات'),
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.person), label: 'الشخصية'),
           ],
           onTap: (index) {
             controller.currentIndex.value = index;

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:kora/Logic/Binding/auth_binding.dart';
 import 'package:kora/Logic/Binding/main_binding.dart';
+import 'package:kora/Logic/Binding/tournaments_binding.dart';
 import 'package:kora/View/screens/auth/login_screen.dart';
 import 'package:kora/View/screens/home/main_screen.dart';
 import 'package:kora/View/screens/auth/register_screen.dart';
@@ -35,6 +36,7 @@ class AppRoutes {
       bindings: [
         AuthBinding(),
         MainBinding(),
+        TournamentsBinding(),
       ],
     ),
   ];

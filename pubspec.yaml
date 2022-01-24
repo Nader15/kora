@@ -28,7 +28,7 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   flutter_simple_rating_bar: ^0.0.3
   readmore: ^2.1.0
-#  geolocator: ^8.0.1
+  #  geolocator: ^8.0.1
 #  geocoding: ^2.0.1
 
 dev_dependencies:
@@ -46,3 +46,6 @@ flutter:
     - family: ElMessiri
       fonts:
         - asset: assets\fonts\ElMessiri-Regular.ttf
+    - family: arabic_font
+      fonts:
+        - asset: assets\fonts/custom_font.ttf
