@@ -4,9 +4,12 @@
 
 import 'dart:convert';
 
-List<TournamentsModel> tournamentsModelFromJson(String str) => List<TournamentsModel>.from(json.decode(str).map((x) => TournamentsModel.fromJson(x)));
+List<TournamentsModel> tournamentsModelFromJson(String str) =>
+    List<TournamentsModel>.from(
+        json.decode(str).map((x) => TournamentsModel.fromJson(x)));
 
-String tournamentsModelToJson(List<TournamentsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String tournamentsModelToJson(List<TournamentsModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class TournamentsModel {
   TournamentsModel({
@@ -27,25 +30,26 @@ class TournamentsModel {
   String image;
   Rating rating;
 
-  factory TournamentsModel.fromJson(Map<String, dynamic> json) => TournamentsModel(
-    id: json["id"],
-    title: json["title"],
-    price: json["price"].toDouble(),
-    description: json["description"],
-    category: categoryValues.map[json["category"]],
-    image: json["image"],
-    rating: Rating.fromJson(json["rating"]),
-  );
+  factory TournamentsModel.fromJson(Map<String, dynamic> json) =>
+      TournamentsModel(
+        id: json["id"],
+        title: json["title"],
+        price: json["price"].toDouble(),
+        description: json["description"],
+        category: categoryValues.map[json["category"]],
+        image: json["image"],
+        rating: Rating.fromJson(json["rating"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "price": price,
-    "description": description,
-    "category": categoryValues.reverse[category],
-    "image": image,
-    "rating": rating.toJson(),
-  };
+        "id": id,
+        "title": title,
+        "price": price,
+        "description": description,
+        "category": categoryValues.reverse[category],
+        "image": image,
+        "rating": rating.toJson(),
+      };
 }
 
 enum Category { MEN_S_CLOTHING, JEWELERY, ELECTRONICS, WOMEN_S_CLOTHING }
@@ -67,14 +71,14 @@ class Rating {
   int count;
 
   factory Rating.fromJson(Map<String, dynamic> json) => Rating(
-    rate: json["rate"].toDouble(),
-    count: json["count"],
-  );
+        rate: json["rate"].toDouble(),
+        count: json["count"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "rate": rate,
-    "count": count,
-  };
+        "rate": rate,
+        "count": count,
+      };
 }
 
 class EnumValues<T> {

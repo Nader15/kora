@@ -22,7 +22,7 @@ class TournamentsCard extends StatelessWidget {
             crossAxisSpacing: 2,
             mainAxisExtent: 200
           ),
-          physics: ScrollPhysics(),
+          physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return tournamentsItem(

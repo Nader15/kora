@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/tournaments_controller.dart';
 import 'package:kora/Utils/colors.dart';
-import 'package:kora/View/screens/auth/tournments_card.dart';
+import 'package:kora/View/widgets/tournments_card.dart';
 
 class TournamentsScreen extends StatelessWidget {
   @override

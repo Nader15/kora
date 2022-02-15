@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                     builder: (_) {
                       return DefaultButton(
                         function: () {
-                          controller.googleLogin();
+                          controller.googleSignUp();
                         },
                         text: 'google',
                       );

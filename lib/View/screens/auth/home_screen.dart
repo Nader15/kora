@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/screens/auth/today_matches.dart';
-import 'package:kora/View/screens/auth/top_players.dart';
+import 'package:kora/View/widgets/top_players_card.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

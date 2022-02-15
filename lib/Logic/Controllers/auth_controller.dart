@@ -8,10 +8,22 @@ import 'package:kora/Routes/routes.dart';
 class AuthController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   var googleSignIn = GoogleSignIn();
-  var displayUserName = '';
-  var displayUserPhoto = '';
+  var displayUserName = ''.obs;
+  var displayUserPhoto = ''.obs;
+  var displayUserEmail = ''.obs;
+  RxDouble newRating = 0.0.obs;
   bool isLogIn = false;
   GetStorage authBox = GetStorage();
+
+  User get userProfile => auth.currentUser;
+
+  @override
+  void onInit() {
+    displayUserName.value = userProfile != null ? userProfile.displayName : "";
+    displayUserPhoto.value = userProfile != null ? userProfile.photoURL : "";
+    displayUserEmail.value = userProfile != null ? userProfile.email : "";
+    super.onInit();
+  }
 
   void signUpEmailAndPassword(
     String fullName,
@@ -86,11 +98,19 @@ class AuthController extends GetxController {
     }
   }
 
-  void googleLogin() async {
+  void googleSignUp() async {
     try {
       final GoogleSignInAccount googleUser = await googleSignIn.signIn();
-      // displayUserName = googleUser.displayName;
-      // displayUserPhoto = googleUser.photoUrl;
+      displayUserName.value = googleUser.displayName;
+      displayUserPhoto.value = googleUser.photoUrl;
+      displayUserEmail.value = googleUser.email;
+      GoogleSignInAuthentication googleSignInAuthentication =
+          await googleUser.authentication;
+      final AuthCredential authCredential = GoogleAuthProvider.credential(
+        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken,
+      );
+      await auth.signInWithCredential(authCredential);
       isLogIn = true;
       authBox.write('isLogIn', isLogIn);
       update();

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:kora/View/screens/auth/home_screen.dart';
-import 'package:kora/View/screens/auth/profile_screen.dart';
+import 'package:kora/View/screens/auth/matches_screen.dart';
 import 'package:kora/View/screens/auth/tournaments_screen.dart';
 
 class MainController extends GetxController {
@@ -8,6 +8,6 @@ class MainController extends GetxController {
   final tabs = [
     HomeScreen(),
     TournamentsScreen(),
-    ProfileScreen(),
+    MatchesScreen(),
   ].obs;
 }
