@@ -15,7 +15,7 @@ class TopPlayersCard extends StatelessWidget {
       } else
         return GridView.builder(
           // itemCount: controller.tournamentsList.length,
-          itemCount: 3,
+          itemCount: controller.tournamentsList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
               childAspectRatio: 5,
@@ -23,7 +23,7 @@ class TopPlayersCard extends StatelessWidget {
               crossAxisSpacing: 12,
               // mainAxisExtent: 80
           ),
-          physics: ScrollPhysics(),
+          physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return topPlayersItem(context,
@@ -46,7 +46,7 @@ class TopPlayersCard extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.all(5.0),
             child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/profile_image.jpg'),
+              backgroundImage: NetworkImage(image),
             ),
           ),
           title: Row(

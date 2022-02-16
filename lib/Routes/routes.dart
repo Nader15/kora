@@ -5,6 +5,7 @@ import 'package:kora/Logic/Binding/tournaments_binding.dart';
 import 'package:kora/View/screens/auth/login_screen.dart';
 import 'package:kora/View/screens/auth/matches_screen.dart';
 import 'package:kora/View/screens/auth/profile_screen.dart';
+import 'package:kora/View/screens/auth/team_screen.dart';
 import 'package:kora/View/screens/home/main_screen.dart';
 import 'package:kora/View/screens/auth/register_screen.dart';
 import 'package:kora/View/screens/splash_screens.dart';
@@ -17,6 +18,7 @@ class AppRoutes {
   static const mainScreen = Routes.mainScreen;
   static const matchesScreen = Routes.matchesScreen;
   static const profileScreen = Routes.profileScreen;
+  static const teamScreen = Routes.teamScreen;
 
   //getPages
   static final routes = [
@@ -53,6 +55,11 @@ class AppRoutes {
       page: () => ProfileScreen(),
       binding: AuthBinding(),
     ),
+    GetPage(
+      name: Routes.teamScreen,
+      page: () => TeamScreen(),
+      binding: AuthBinding(),
+    ),
   ];
 }
 
@@ -63,4 +70,5 @@ class Routes {
   static const mainScreen = '/mainScreen';
   static const matchesScreen = '/matchesScreen';
   static const profileScreen = '/profileScreen';
+  static const teamScreen = '/teamScreen';
 }

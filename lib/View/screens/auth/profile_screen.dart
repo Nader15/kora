@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/auth_controller.dart';
+import 'package:kora/Routes/routes.dart';
 import 'package:kora/Utils/colors.dart';
+import 'package:kora/View/screens/auth/team_screen.dart';
 import 'package:kora/View/widgets/user_another_card.dart';
 import 'package:kora/View/widgets/user_card.dart';
 import 'package:kora/View/widgets/rating_widget.dart';
@@ -32,7 +34,15 @@ class ProfileScreen extends StatelessWidget {
                       child: UserCard(),
                     ),
                   ),
-
+                  Center(
+                    child: FlatButton(
+                      splashColor: Colors.amber,
+                      onPressed: () {
+                        Get.toNamed(Routes.teamScreen);
+                      },
+                      child: Text("فريق أبوعريضة",style: TextStyle(color: whiteColor),),
+                    ),
+                  ),
                   // UserAnotherCard(),
                   RatingWidget(),
                   Padding(
