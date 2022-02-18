@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/screens/auth/today_matches.dart';
+import 'package:kora/View/screens/auth/top_teams_card.dart';
 import 'package:kora/View/widgets/top_players_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -106,6 +107,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              TopTeamsCard(),
+              SizedBox(height: 20,)
             ],
           ),
         ),

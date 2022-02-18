@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/tournaments_controller.dart';
+import 'package:kora/Routes/routes.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/widgets/top_players_card.dart';
 
@@ -46,7 +47,9 @@ class TeamScreen extends StatelessWidget {
                     width: 25,
                   ),
                   tooltip: 'التشكيلة',
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(Routes.teamLineupScreen);
+                  },
                 ),
                 IconButton(
                   icon: Icon(Icons.share),
