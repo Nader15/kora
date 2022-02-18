@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/tournaments_controller.dart';
 import 'package:kora/Utils/colors.dart';
-import 'package:kora/View/widgets/circular_cached_images_widget.dart';
 
 class TopPlayersCard extends StatelessWidget {
   TopPlayersCard({Key key}) : super(key: key);
@@ -49,8 +48,16 @@ class TopPlayersCard extends StatelessWidget {
           onTap: () {},
           leading: Padding(
             padding: const EdgeInsets.all(5.0),
-            child: CircularCachedImagesWidget(
-              image: image,
+            child: CachedNetworkImage(
+              imageUrl: image,
+              imageBuilder: (context, imageProvider) => CircleAvatar(
+                backgroundImage: imageProvider,
+              ),
+              placeholder: (context, url) => Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
           title: Row(

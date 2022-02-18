@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/auth_controller.dart';
@@ -6,7 +7,6 @@ import 'package:kora/Logic/Controllers/tournaments_controller.dart';
 import 'package:kora/Routes/routes.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/screens/auth/profile_screen.dart';
-import 'package:kora/View/widgets/circular_cached_images_widget.dart';
 import 'package:kora/View/widgets/user_another_card.dart';
 import 'package:kora/View/widgets/user_card.dart';
 
@@ -35,8 +35,16 @@ class MainScreen extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(Routes.profileScreen);
                 },
-                child: CircularCachedImagesWidget(
-                  image: "${authController.displayUserPhoto}",
+                child: CachedNetworkImage(
+                  imageUrl: "${authController.displayUserPhoto}",
+                  imageBuilder: (context, imageProvider) => CircleAvatar(
+                    backgroundImage: imageProvider,
+                  ),
+                  placeholder: (context, url) => Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),
             ),

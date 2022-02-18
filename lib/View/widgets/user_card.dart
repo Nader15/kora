@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/auth_controller.dart';
 import 'package:kora/Utils/colors.dart';
-import 'package:kora/View/widgets/user_card_cached_image.dart';
 
 class UserCard extends StatelessWidget {
   UserCard({Key key}) : super(key: key);
@@ -44,9 +44,25 @@ class UserCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                UserCardCachedImage(
-                  image: "${authController.displayUserPhoto}",
-                )
+                CachedNetworkImage(
+                  imageUrl: "${authController.displayUserPhoto}",
+                  imageBuilder: (context, imageProvider) => Container(
+                    height:
+                    MediaQuery.of(context).size.height / 5,
+                    width:
+                    MediaQuery.of(context).size.width / 3.1,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10)),
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ],
             ),
           ),
