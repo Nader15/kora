@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/tournaments_controller.dart';
 import 'package:kora/Utils/colors.dart';
+import 'package:kora/View/widgets/circular_cached_images_widget.dart';
 
 class TopPlayersCard extends StatelessWidget {
   TopPlayersCard({Key key}) : super(key: key);
@@ -17,16 +19,17 @@ class TopPlayersCard extends StatelessWidget {
           // itemCount: controller.tournamentsList.length,
           itemCount: controller.tournamentsList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              childAspectRatio: 5,
-              mainAxisSpacing: 0,
-              crossAxisSpacing: 12,
-              // mainAxisExtent: 80
+            crossAxisCount: 1,
+            childAspectRatio: 5,
+            mainAxisSpacing: 0,
+            crossAxisSpacing: 12,
+            // mainAxisExtent: 80
           ),
           physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return topPlayersItem(context,
+            return topPlayersItem(
+              context,
               controller.tournamentsList[index].image,
             );
           },
@@ -34,40 +37,57 @@ class TopPlayersCard extends StatelessWidget {
     });
   }
 
-  Widget topPlayersItem(BuildContext context,String image) {
+  Widget topPlayersItem(BuildContext context, String image) {
     return Padding(
       padding: const EdgeInsets.all(1.0),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: ListTile(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           tileColor: greyPrimaryColor,
-          onTap: (){},
+          onTap: () {},
           leading: Padding(
             padding: const EdgeInsets.all(5.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(image),
+            child: CircularCachedImagesWidget(
+              image: image,
             ),
           ),
           title: Row(
             children: [
-              Text("نادر صلاح",style: TextStyle(color: whiteColor),),
-              SizedBox(width: 20,),
-              Text("مهاجم",style: TextStyle(color: greyColor,fontSize: 12),),
+              Text(
+                "نادر صلاح",
+                style: TextStyle(color: whiteColor),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                "مهاجم",
+                style: TextStyle(color: greyColor, fontSize: 12),
+              ),
             ],
           ),
-          subtitle: Text("فريق أبوعريضة",style: TextStyle(color: greyColor,fontSize: 12),),
+          subtitle: Text(
+            "فريق أبوعريضة",
+            style: TextStyle(color: greyColor, fontSize: 12),
+          ),
           trailing: SizedBox(
-            width: MediaQuery.of(context).size.width/5,
+            width: MediaQuery.of(context).size.width / 5,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("7",style: TextStyle(color: whiteColor,fontSize: 20),),
-                Text("أهداف",style: TextStyle(color: whiteColor,fontSize: 15),),
+                Text(
+                  "7",
+                  style: TextStyle(color: whiteColor, fontSize: 20),
+                ),
+                Text(
+                  "أهداف",
+                  style: TextStyle(color: whiteColor, fontSize: 15),
+                ),
               ],
             ),
           ),
-
         ),
       ),
     );

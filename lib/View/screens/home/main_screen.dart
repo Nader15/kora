@@ -6,6 +6,7 @@ import 'package:kora/Logic/Controllers/tournaments_controller.dart';
 import 'package:kora/Routes/routes.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/screens/auth/profile_screen.dart';
+import 'package:kora/View/widgets/circular_cached_images_widget.dart';
 import 'package:kora/View/widgets/user_another_card.dart';
 import 'package:kora/View/widgets/user_card.dart';
 
@@ -34,9 +35,8 @@ class MainScreen extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(Routes.profileScreen);
                 },
-                child: CircleAvatar(
-                  backgroundImage:
-                      NetworkImage("${authController.displayUserPhoto}"),
+                child: CircularCachedImagesWidget(
+                  image: "${authController.displayUserPhoto}",
                 ),
               ),
             ),

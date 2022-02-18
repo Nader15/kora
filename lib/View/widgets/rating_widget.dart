@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/auth_controller.dart';
+import 'package:kora/Utils/colors.dart';
 
 class RatingWidget extends StatelessWidget {
   RatingWidget({Key key}) : super(key: key);
@@ -29,7 +30,7 @@ class RatingWidget extends StatelessWidget {
                   itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
                   itemBuilder: (context, _) => Icon(
                     Icons.star,
-                    color: Colors.amber,
+                    color: amberColor,
                   ),
                   onRatingUpdate: (rating) {
                     authController.newRating.value = rating;
@@ -43,7 +44,7 @@ class RatingWidget extends StatelessWidget {
                   () {
                     return Text(
                       "${authController.newRating.value}",
-                      style: TextStyle(color: Colors.amber, fontSize: 25),
+                      style: TextStyle(color: amberColor, fontSize: 25),
                     );
                   },
                 ),

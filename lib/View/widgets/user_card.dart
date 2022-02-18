@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/auth_controller.dart';
 import 'package:kora/Utils/colors.dart';
+import 'package:kora/View/widgets/user_card_cached_image.dart';
 
 class UserCard extends StatelessWidget {
-   UserCard({Key key}) : super(key: key);
+  UserCard({Key key}) : super(key: key);
   final authController = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,8 +30,7 @@ class UserCard extends StatelessWidget {
                     children: [
                       Text(
                         "مهاجم",
-                        style: TextStyle(
-                            color: whiteColor, fontSize: 20),
+                        style: TextStyle(color: whiteColor, fontSize: 20),
                       ),
                       SizedBox(
                         height: 20,
@@ -43,21 +44,8 @@ class UserCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  height:
-                  MediaQuery.of(context).size.height / 5,
-                  width:
-                  MediaQuery.of(context).size.width / 3.1,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(10)),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        "${authController.displayUserPhoto}",
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                UserCardCachedImage(
+                  image: "${authController.displayUserPhoto}",
                 )
               ],
             ),
@@ -67,8 +55,7 @@ class UserCard extends StatelessWidget {
             padding: EdgeInsets.all(10),
             child: Text(
               "${authController.displayUserName}",
-              style:
-              TextStyle(color: whiteColor, fontSize: 20),
+              style: TextStyle(color: whiteColor, fontSize: 20),
             ),
           ),
         ],

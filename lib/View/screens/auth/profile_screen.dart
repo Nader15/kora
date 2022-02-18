@@ -8,6 +8,7 @@ import 'package:kora/View/screens/auth/team_screen.dart';
 import 'package:kora/View/widgets/user_another_card.dart';
 import 'package:kora/View/widgets/user_card.dart';
 import 'package:kora/View/widgets/rating_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key key}) : super(key: key);
@@ -36,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   Center(
                     child: FlatButton(
-                      splashColor: Colors.amber,
+                      splashColor: amberColor,
                       onPressed: () {
                         Get.toNamed(Routes.teamScreen);
                       },
@@ -182,7 +183,7 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(title, style: TextStyle(color: whiteColor, fontSize: 20)),
-            Text(count, style: TextStyle(color: Colors.amber, fontSize: 25)),
+            Text(count, style: TextStyle(color: amberColor, fontSize: 25)),
           ],
         ),
       );
@@ -206,18 +207,23 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Image.asset(
-                    "assets/images/trophy.png",
-                    width: 50,
+                  Expanded(
+                    flex: 3,
+                    child: Lottie.asset(
+                      "assets/images/animated_trophy.json",
+                      width: 200,
+                    ),
                   ),
-                  CircleAvatar(
-                    backgroundColor: Colors.amber,
-                    radius: 17,
-                    child: Text(
-                      "2",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
+                  Expanded(
+                    child: CircleAvatar(
+                      backgroundColor: amberColor,
+                      radius: 15,
+                      child: Text(
+                        "2",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
