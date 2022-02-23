@@ -5,6 +5,7 @@ import 'package:kora/Routes/routes.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/widgets/top_players_card.dart';
 
+
 class TeamScreen extends StatelessWidget {
   TeamScreen({Key key}) : super(key: key);
   final controller = Get.find<TournamentsController>();
@@ -15,6 +16,7 @@ class TeamScreen extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
+
             SliverAppBar(
               backgroundColor: greyPrimaryColor,
               pinned: true,

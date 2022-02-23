@@ -23,11 +23,25 @@ class MainScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: greyPrimaryColor,
           actions: [
-            IconButton(
-              icon: Icon(Icons.notifications),
-              onPressed: () {},
-              iconSize: 30,
-              color: whiteColor,
+            Stack(
+              alignment: AlignmentDirectional.topEnd,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.notifications),
+                  onPressed: () {},
+                  iconSize: 35,
+                  color: whiteColor,
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle
+                  ),
+                  child: Text("1"),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
@@ -56,7 +70,7 @@ class MainScreen extends StatelessWidget {
           elevation: 0,
           child: SafeArea(
             child: Container(
-              color: Colors.black,
+              color: blackColor,
               child: ListView(
                 children: [
                   Padding(
@@ -73,11 +87,11 @@ class MainScreen extends StatelessWidget {
                     onTap: () {},
                     leading: Icon(
                       Icons.home,
-                      color: Colors.white,
+                      color: whiteColor,
                     ),
                     title: Text(
                       "Home",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: whiteColor),
                     ),
                   ),
                   ListTile(
@@ -86,26 +100,26 @@ class MainScreen extends StatelessWidget {
                     },
                     leading: Icon(
                       Icons.person,
-                      color: Colors.white,
+                      color: whiteColor,
                     ),
                     title: Text(
                       "Profile",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: whiteColor),
                     ),
                   ),
                   ListTile(
                     onTap: () {},
                     leading: Icon(
                       Icons.settings,
-                      color: Colors.white,
+                      color: whiteColor,
                     ),
                     title: Text(
                       "Settings",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: whiteColor),
                     ),
                   ),
                   Divider(
-                    color: Colors.grey,
+                    color: greyColor,
                   ),
                   GetBuilder<AuthController>(
                     builder: (_) => ListTile(
@@ -142,7 +156,8 @@ class MainScreen extends StatelessWidget {
           currentIndex: controller.currentIndex.value,
           type: BottomNavigationBarType.fixed,
           backgroundColor: greyPrimaryColor,
-          selectedItemColor: primaryColor,
+          selectedItemColor: amberColor,
+          // selectedItemColor: primaryColor,
           unselectedItemColor: greyColor,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'الرئيسية'),

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kora/Utils/colors.dart';
 import 'package:kora/View/screens/auth/today_matches.dart';
-import 'package:kora/View/screens/auth/top_teams_card.dart';
+import 'package:kora/View/widgets/top_teams_card.dart';
 import 'package:kora/View/widgets/top_players_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,103 +15,64 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "مباريات اليوم",
-                      style: TextStyle(
-                        color: whiteColor,
-                        fontSize: 25,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: (){},
-                      child: Column(
-                        children: [
-                          Text(
-                            "الكل",
-                            style: TextStyle(
-                              color: primaryColor,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Container(width: 50,color: primaryColor,height: 1,)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              headerWidget(
+                "مباريات اليوم",
+                () {},
               ),
               TodayMatches(),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "أبرز اللاعبين",
-                      style: TextStyle(
-                        color: whiteColor,
-                        fontSize: 25,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: (){},
-                      child: Column(
-                        children: [
-                          Text(
-                            "الكل",
-                            style: TextStyle(
-                              color: primaryColor,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Container(width: 50,color: primaryColor,height: 1,)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              headerWidget(
+                "أبرز اللاعبين",
+                () {},
               ),
               TopPlayersCard(),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "أبرز الفرق",
-                      style: TextStyle(
-                        color: whiteColor,
-                        fontSize: 25,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: (){},
-                      child: Column(
-                        children: [
-                          Text(
-                            "الكل",
-                            style: TextStyle(
-                              color: primaryColor,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Container(width: 50,color: primaryColor,height: 1,)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              headerWidget(
+                "أبرز الفرق",
+                () {},
               ),
               TopTeamsCard(),
-              SizedBox(height: 20,)
+              SizedBox(
+                height: 20,
+              )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget headerWidget(String title, Function onPress) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              color: whiteColor,
+              fontSize: 25,
+            ),
+          ),
+          InkWell(
+            onTap: onPress,
+            child: Column(
+              children: [
+                Text(
+                  "الكل",
+                  style: TextStyle(
+                    color: amberColor,
+                    fontSize: 20,
+                  ),
+                ),
+                Container(
+                  width: 50,
+                  color: amberColor,
+                  height: 1,
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

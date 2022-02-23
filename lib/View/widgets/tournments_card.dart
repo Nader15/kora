@@ -15,7 +15,8 @@ class TournamentsCard extends StatelessWidget {
         return Center(child: const CircularProgressIndicator());
       } else
         return GridView.builder(
-          itemCount: controller.tournamentsList.length,
+          itemCount: 5,
+          // itemCount: controller.tournamentsList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
               childAspectRatio: 20,
