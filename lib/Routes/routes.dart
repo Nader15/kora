@@ -2,11 +2,15 @@ import 'package:get/get.dart';
 import 'package:kora/Logic/Binding/auth_binding.dart';
 import 'package:kora/Logic/Binding/main_binding.dart';
 import 'package:kora/Logic/Binding/tournaments_binding.dart';
+import 'package:kora/View/screens/auth/create_match_step1_screen.dart';
+import 'package:kora/View/screens/auth/create_match_step2_screen.dart';
 import 'package:kora/View/screens/auth/login_screen.dart';
 import 'package:kora/View/screens/auth/matches_screen.dart';
 import 'package:kora/View/screens/auth/profile_screen.dart';
 import 'package:kora/View/screens/auth/team_lineup_screen.dart';
 import 'package:kora/View/screens/auth/team_screen.dart';
+import 'package:kora/View/screens/auth/tournament_teams_screen.dart';
+import 'package:kora/View/screens/auth/uncomplete_matches_screen.dart';
 import 'package:kora/View/screens/home/main_screen.dart';
 import 'package:kora/View/screens/auth/register_screen.dart';
 import 'package:kora/View/screens/splash_screens.dart';
@@ -21,6 +25,10 @@ class AppRoutes {
   static const profileScreen = Routes.profileScreen;
   static const teamScreen = Routes.teamScreen;
   static const teamLineupScreen = Routes.teamLineupScreen;
+  static const tournamentTeamScreen = Routes.tournamentTeamScreen;
+  static const unCompleteMatchesScreen = Routes.unCompleteMatchesScreen;
+  static const createMatchStep1Screen = Routes.createMatchStep1Screen;
+  static const createMatchStep2Screen = Routes.createMatchStep2Screen;
 
   //getPages
   static final routes = [
@@ -67,6 +75,26 @@ class AppRoutes {
       page: () => TeamLineupScreen(),
       binding: AuthBinding(),
     ),
+    GetPage(
+      name: Routes.tournamentTeamScreen,
+      page: () => TournamentTeamScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: Routes.unCompleteMatchesScreen,
+      page: () => UnCompleteMatchesScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: Routes.createMatchStep1Screen,
+      page: () => CreateMatchStep1Screen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: Routes.createMatchStep2Screen,
+      page: () => CreateMatchStep2Screen(),
+      binding: AuthBinding(),
+    ),
   ];
 }
 
@@ -79,4 +107,8 @@ class Routes {
   static const profileScreen = '/profileScreen';
   static const teamScreen = '/teamScreen';
   static const teamLineupScreen = '/teamLineupScreen';
+  static const tournamentTeamScreen = '/tournamentTeamScreen';
+  static const unCompleteMatchesScreen = '/unCompleteMatchesScreen';
+  static const createMatchStep1Screen = '/createMatchStep1Screen';
+  static const createMatchStep2Screen = '/createMatchStep2Screen';
 }

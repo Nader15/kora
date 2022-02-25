@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:kora/Logic/Controllers/tournaments_controller.dart';
 import 'package:kora/Routes/routes.dart';
 import 'package:kora/Utils/colors.dart';
-import 'package:kora/View/widgets/tournments_card.dart';
+import 'package:kora/View/widgets/tournaments_card.dart';
 
 class TournamentsScreen extends StatelessWidget {
   @override
@@ -52,7 +52,7 @@ class TournamentsScreen extends StatelessWidget {
           return FlatButton(
             padding: const EdgeInsets.all(10),
             onPressed: () {
-              // Get.toNamed(Routes.teamScreen);
+              Get.toNamed(Routes.tournamentTeamScreen);
             },
             child: Stack(
               children: [

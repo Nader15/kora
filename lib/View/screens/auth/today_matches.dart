@@ -12,6 +12,8 @@ class TodayMatches extends StatelessWidget {
       padding: EdgeInsets.all(10),
       child: GridView.builder(
           scrollDirection: Axis.horizontal,
+          physics: BouncingScrollPhysics(),
+          shrinkWrap: true,
           itemCount: 5,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
