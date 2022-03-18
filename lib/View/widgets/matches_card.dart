@@ -48,41 +48,47 @@ class MatchesCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                teams(
-                  true,
-                  () {
-                    Get.toNamed(Routes.teamScreen);
-                  },
-                ),
-                Text(
-                  "14:00",
-                  style: TextStyle(color: whiteColor),
-                ),
-                teams(
-                  false,
-                  () {
-                    Get.toNamed(Routes.teamScreen);
-                  },
-                ),
-              ],
+            Flexible(
+              flex: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  teams(
+                    true,
+                    () {
+                      Get.toNamed(Routes.teamScreen);
+                    },
+                  ),
+                  Text(
+                    "14:00",
+                    style: TextStyle(color: whiteColor,fontSize: 20),
+                  ),
+                  teams(
+                    false,
+                    () {
+                      Get.toNamed(Routes.teamScreen);
+                    },
+                  ),
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "15/5/2022",
-                  style: TextStyle(color: whiteColor),
-                ),
-                SizedBox(width: 10),
-                Text(
-                  "الأربعاء",
-                  style: TextStyle(color: whiteColor),
-                ),
-              ],
+            Flexible(
+              flex: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "15/5/2022",
+                    style: TextStyle(color: whiteColor),
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    "الأربعاء",
+                    style: TextStyle(color: whiteColor),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -177,7 +183,7 @@ class MatchesCard extends StatelessWidget {
               style: TextStyle(color: whiteColor),
             ),
           ),
-          SizedBox(width: 10),
+          // SizedBox(width: 10),
           CircleAvatar(
             backgroundImage: AssetImage("assets/images/team_cover.jpg"),
             // backgroundImage: imageProvider,
